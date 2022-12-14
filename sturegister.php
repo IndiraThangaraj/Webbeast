@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
     $mode = $_POST['mode'];
     $contact = $_POST['contact'];
 
-    $sql= mysqli_query($conn,"INSERT INTO student (name,email,password,type,age,address,state,school,mode,contact) values('$name','$email','$password','$type','$age','$address','$state','$school','$mode','$contact')");
+    $sql= mysqli_query($conn,"INSERT INTO stud (name,email,password,type,age,address,state,school,mode,contact) values('$name','$email','$password','$type','$age','$address','$state','$school','$mode','$contact')");
     
     if ($sql) {
         echo "<script>alert('Successfully Registered. You can login now');</script>";
@@ -76,7 +76,7 @@ if (isset($_POST['submit'])) {
                                 </div>
                                 <div class="form-group">
                                     <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                    <input type="email" name="email" id="email" placeholder="Your Email" required="required" onBlur="userAvailability()"/>
+                                    <input type="email" name="email" id="email" placeholder="Your Email" required="required" onchange="userAvailability()"/>
                                     <span id="user-availability-status1" style="font-size:12px;"></span>
                                 </div>
 
@@ -155,20 +155,7 @@ if (isset($_POST['submit'])) {
                                         <option value="physical">Physical</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                   
-                                    <select name="subject class=" form-control required="required">
-                                        <option value="">Select Subject</option>
-                                        <?php $ret = mysqli_query($conn, "select * from subject");
-                                        while ($row = mysqli_fetch_array($ret)) {
-                                        ?>
-                                            <option value="<?php echo htmlentities($row['subject']); ?>">
-                                                <?php echo htmlentities($row['subject']); ?>
-                                            </option>
-                                        <?php } ?>
-
-                                    </select>
-                                </div>
+                            
 
                                 <br>
                             </fieldset>

@@ -11,8 +11,10 @@ if (isset($_POST['submit'])) {
     $edu =$_POST['edu'];
     $mode = $_POST['mode'];
     $contact = $_POST['contact'];
+    $experience= $_POST['experience'];
 
-    $sql= mysqli_query($conn,"INSERT INTO tutor (name,email,password,type,age,address,state,edu,mode,contact) values('$name','$email','$password','$type','$age','$address','$state','$edu','$mode','$contact')");
+
+    $sql= mysqli_query($conn,"INSERT INTO tutor_data (name,email,password,type,age,address,state,edu,mode,contact,experience) values('$name','$email','$password','$type','$age','$address','$state','$edu','$mode','$contact','$experience')");
     
     if ($sql) {
         echo "<script>alert('Successfully Registered. You can login now');</script>";
@@ -76,7 +78,7 @@ if (isset($_POST['submit'])) {
                                 </div>
                                 <div class="form-group">
                                     <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                    <input type="email" name="email" id="email" placeholder="Your Email" required="required" onBlur="userAvailability()"/>
+                                    <input type="email" name="email" id="email" placeholder="Your Email" required="required" onchange="userAvailability()"/>
                                     <span id="user-availability-status1" style="font-size:12px;"></span>
                                 </div>
 
@@ -169,7 +171,9 @@ if (isset($_POST['submit'])) {
 
                                     </select>
                                 </div>
-
+                                <div class="form-group">
+                                    <textarea name="experience" cols="25" rows="5" required="required">State your previous experince as a tutor ("-" if no experince)</textarea>
+                                </div>
                                 <br>
                             </fieldset>
                             <br>

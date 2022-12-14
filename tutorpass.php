@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
   $name = $_SESSION['contact'];
   $email = $_SESSION['email'];
   $newpassword = md5($_POST['password']);
-  $query = mysqli_query($conn, "UPDATE tutor set password='$password' where contact='$contact' and email='$email'");
+  $query = mysqli_query($conn, "UPDATE tutor_data set password='$password' where contact='$contact' and email='$email'");
   if ($query) {
     echo "<script>alert('Password successfully updated.');</script>";
     echo "<script>window.location.href ='tutorlog.php'</script>";
@@ -75,11 +75,12 @@ if (isset($_POST['submit'])) {
 
           </button>
         </div>
-        <div class="copyright">
- 					&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> JBS</span>.
- 					<span>All rights reserved</span>
- 				</div>
+       
       </form>
     </div>
   </div>
+  <div class="copyright">
+          &copy; <span class="current-year"></span><span class="text-bold text-uppercase"> JBS</span>.
+          <span>All rights reserved</span>
+        </div>
 </body>

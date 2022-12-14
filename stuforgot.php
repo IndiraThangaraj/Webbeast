@@ -2,11 +2,13 @@
 session_start();
 error_reporting(0);
 include("/xampp/htdocs/webbeast/public/include/database-connection.php");
+include('checklogin.php');
+check_login();
 //Checking Details for reset password
 if(isset($_POST['submit'])){
 $email=$_POST['email'];
 $contact=$_POST['contact'];
-$query=mysqli_query($conn,"SELECT id from student where email='$email' and contact='$contact'");
+$query=mysqli_query($conn,"SELECT id from stud where email='$email' and contact='$contact'");
 $row=mysqli_num_rows($query);
 if($row>0){
 
@@ -68,12 +70,12 @@ echo "<script>window.location.href ='forgot-password.php'</script>";
  						<a href="stulogin.php"> Log-in </a>
  					</div>
 
-           <div class="copyright">
- 					&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> JBS</span>.
- 					<span>All rights reserved</span>
- 				</div>
-
+           
       </form>
     </div>
   </div>
+  <div class="copyright">
+          &copy; <span class="current-year"></span><span class="text-bold text-uppercase"> JBS</span>.
+          <span>All rights reserved</span>
+        </div>
 </body>

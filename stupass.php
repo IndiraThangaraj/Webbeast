@@ -2,12 +2,13 @@
 session_start();
 error_reporting(0);
 include("/xampp/htdocs/webbeast/public/include/database-connection.php");
+
 // Code for updating Password
 if (isset($_POST['submit'])) {
   $contact = $_SESSION['contact'];
   $email = $_SESSION['email'];
   $password = md5($_POST['password']);
-  $query = mysqli_query($conn, "UPDATE student set password='$password' where contact='$contact' and email='$email'");
+  $query = mysqli_query($conn, "UPDATE stud set password='$password' where contact='$contact' and email='$email'");
   if ($query) {
     echo "<script>alert('Password successfully updated.');</script>";
     echo "<script>window.location.href ='stulogin.php'</script>";
@@ -75,12 +76,15 @@ if (isset($_POST['submit'])) {
           </button>
         </div>
 
-        <div class="copyright">
+        
+
+      </form>
+      
+    </div>
+    
+  </div>
+  <div class="copyright">
           &copy; <span class="current-year"></span><span class="text-bold text-uppercase"> JBS</span>.
           <span>All rights reserved</span>
         </div>
-
-      </form>
-    </div>
-  </div>
 </body>

@@ -6,7 +6,7 @@ include("/xampp/htdocs/webbeast/public/include/database-connection.php");
 if (isset($_POST['submit'])) {
   $contact = $_POST['contact'];
   $email = $_POST['email'];
-  $query = mysqli_query($conn, "SELECT id from tutor where email='$email' and contact='$contact'");
+  $query = mysqli_query($conn, "SELECT id from tutor_data where email='$email' and contact='$contact'");
   $row = mysqli_num_rows($query);
   if ($row > 0) {
 
@@ -68,12 +68,12 @@ if (isset($_POST['submit'])) {
  						<a href="tutorlog.php"> Log-in </a>
  					</div>
 
-           <div class="copyright">
- 					&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> JBS</span>.
- 					<span>All rights reserved</span>
- 				</div>
-
+      
       </form>
     </div>
   </div>
+  <div class="copyright">
+          &copy; <span class="current-year"></span><span class="text-bold text-uppercase"> JBS</span>.
+          <span>All rights reserved</span>
+        </div>
 </body>
